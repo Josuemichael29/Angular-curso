@@ -1,3 +1,4 @@
+"use strict";
 //'use strict'
 ///////////////////////////////////////////    CLASE 1 - COSAS GENERALES    ///////////////////////////////////////////
 /*
@@ -100,17 +101,116 @@ hulk.smash();
 //console.log(miFuncion2(1,2));
 //console.log(miFuncion2F(1,2));
 */
+/*
 ///////////////////////////////////////////    CLASE 4 - DESTRUCTURACIÓN DE OBJETOS    ///////////////////////////////////////////
-var avenger = {
-    nombre: "Steve",
-    clave: "Capitan America",
-    poder: "Droga"
+
+let avenger = {
+  nombre: "Steve",
+  clave: "Capitan America",
+  poder: "Droga"
 };
-var nombre = avenger.nombre, clave = avenger.clave, poder = avenger.poder;
+
+let {nombre, clave, poder} = avenger;
+
 //let nombre = avenger.nombre;
 //let clave = avenger.clave;
 //let poder = avenger.poder;
+
 console.log(nombre, clave, poder);
-var avengers = ["Thor", "Steve", "Tony"];
-var thor = avengers[0], capi = avengers[1], ironman = avengers[2];
-console.log(thor, capi, ironman);
+
+
+let avengers:string[] = ["Thor", "Steve", "Tony"];
+
+//let [thor, capi, ironman] = avengers;
+let [, , ironman] = avengers;
+
+console.log(ironman);
+
+*/
+/*
+///////////////////////////////////////////    CLASE 4 - PROMESAS EN ES6    ///////////////////////////////////////////
+let prom1 = new Promise(function(resolve, reject){
+    setTimeout(() => {
+       console.log("Promesa terminada");
+       
+       //Termina bien
+       resolve();
+
+       //Termina mal
+       //reject();
+
+    }, 1500);
+});
+
+console.log("Paso 1");
+
+prom1.then( function(){
+    console.log("Ejecutarme cuando termine bien!");
+} ,
+function(){
+    console.log("Ejecutarme cuando termine mal!");
+})
+
+console.log("Paso 2");
+*/
+/*
+///////////////////////////////////////////    CLASE 5 - INTERFACES    ///////////////////////////////////////////
+interface xMen {
+    nombre:string,
+    poder:string
+}
+
+function enviarMision(xmen:xMen) {
+    console.log("Enviando a: " + xmen.nombre);
+}
+
+
+let wolverine:xMen = {
+    nombre: "Wolverine",
+    poder: "Regeneración"
+};
+
+enviarMision(wolverine);
+*/
+/*
+///////////////////////////////////////////    CLASE 6 - CLASES    ///////////////////////////////////////////
+class Avenger {
+    nombre:string;
+    equipo:string;
+    nombreReal:string;
+
+    puedePelear:boolean;
+    peleasGanadas:number;
+
+    constructor(nombre:string, equipo:string, nombreReal:string, puedePelear:boolean, peleasGanadas:number){
+        this.nombre = nombre;
+        this.equipo = equipo;
+        this.nombreReal = nombreReal;
+        this.puedePelear = puedePelear;
+        this.peleasGanadas = peleasGanadas;
+    }
+}
+
+let antman:Avenger = new Avenger("antman", "cap", "Nose", true, 2);
+
+console.log(antman);
+*/
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+///////////////////////////////////////////    CLASE 7 - DECORADORES    ///////////////////////////////////////////
+function consola(constructor) {
+    console.log(constructor);
+}
+var Villano = /** @class */ (function () {
+    function Villano(nombre) {
+        this.nombre = nombre;
+    }
+    Villano = __decorate([
+        consola
+    ], Villano);
+    return Villano;
+}());

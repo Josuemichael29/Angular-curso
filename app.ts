@@ -126,7 +126,7 @@ let [, , ironman] = avengers;
 console.log(ironman);
 
 */
-
+/*
 ///////////////////////////////////////////    CLASE 4 - PROMESAS EN ES6    ///////////////////////////////////////////
 let prom1 = new Promise(function(resolve, reject){
     setTimeout(() => {
@@ -141,6 +141,71 @@ let prom1 = new Promise(function(resolve, reject){
     }, 1500);
 });
 
+console.log("Paso 1");
+
 prom1.then( function(){
-    console.log("Ejectur")
-} , )
+    console.log("Ejecutarme cuando termine bien!");
+} , 
+function(){
+    console.log("Ejecutarme cuando termine mal!");
+})
+
+console.log("Paso 2");
+*/
+/*
+///////////////////////////////////////////    CLASE 5 - INTERFACES    ///////////////////////////////////////////
+interface xMen {
+    nombre:string,
+    poder:string
+}
+
+function enviarMision(xmen:xMen) {
+    console.log("Enviando a: " + xmen.nombre);
+}
+
+
+let wolverine:xMen = {
+    nombre: "Wolverine",
+    poder: "Regeneración"
+};
+
+enviarMision(wolverine);
+*/
+/*
+///////////////////////////////////////////    CLASE 6 - CLASES    ///////////////////////////////////////////
+class Avenger {
+    nombre:string;
+    equipo:string;
+    nombreReal:string;
+
+    puedePelear:boolean;
+    peleasGanadas:number;
+
+    constructor(nombre:string, equipo:string, nombreReal:string, puedePelear:boolean, peleasGanadas:number){
+        this.nombre = nombre;
+        this.equipo = equipo;
+        this.nombreReal = nombreReal;
+        this.puedePelear = puedePelear;
+        this.peleasGanadas = peleasGanadas;
+    }
+}
+
+let antman:Avenger = new Avenger("antman", "cap", "Nose", true, 2);
+
+console.log(antman);
+*/
+/*
+///////////////////////////////////////////    CLASE 7 - DECORADORES    ///////////////////////////////////////////
+function consola(constructor:Function){
+    console.log(constructor);
+}
+
+@consola
+class Villano{
+    
+    constructor(public nombre:string) {
+
+    }
+}
+*/
+

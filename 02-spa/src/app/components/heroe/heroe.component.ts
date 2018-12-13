@@ -17,11 +17,17 @@ export class HeroeComponent implements OnInit {
 
     this.activatedRoute.params.subscribe( params => {
       this.heroe = this._heroesService.getHeroe( params['id'] );
-      console.log( this.heroe );
     });
    }
 
   ngOnInit() {
   }
 
+  definirImagen( heroeCasa: string ) {
+    if (heroeCasa === 'DC') {
+      return 'assets/img/logo-dc.png';
+    } else {
+      return 'assets/img/logo-marvel.png';
+    }
+  }
 }

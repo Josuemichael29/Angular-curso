@@ -1,0 +1,9 @@
+<div class="row m-5">
+    <div class="col">
+        <input #buscarArtista (keyup)="buscar(buscarArtista.value)" type="text" class="form-control"
+            [placeholder]="PLACEHOLDER_BUSCAR" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+</div>
+<div class="row">
+    <app-tarjeta [items]="artistaEncontrados"></app-tarjeta>
+</div>
